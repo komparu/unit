@@ -1,0 +1,6 @@
+/vendor
+/report
+/.idea
+composer.lock
+.env
+/nbproject
