@@ -54,13 +54,15 @@ abstract class Quantity
         $this->unitDefinitions[] = $unit;
     }
     
-    public function to($unit)
+    public function to($unit = false)
     {
         $original   = $this->findUnitByName($this->unit);
         $value      = $original->convertToNative($this->value);
         
-        $to         = $this->findUnitByName($unit);
-        $value      = $to->convertFromNative($value);
+        if ($unit === false) {
+            $to         = $this->findUnitByName($unit);
+            $value      = $to->convertFromNative($value);
+        }
 
         return $value;
     }
