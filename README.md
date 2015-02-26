@@ -2,14 +2,14 @@
 Helper for handling units of measure
 
 ### Supported units
-Bitrate (bit/s)
-ElectricCurrent (A)
-Length (m)
-LuminousIntensity (cd)
-Mass (g)
-Money (euro)
-Percentage (%)
-Time
+* Bitrate (bit/s)
+* ElectricCurrent (A)
+* Length (m)
+* LuminousIntensity (cd)
+* Mass (g)
+* Money (euro)
+* Percentage (%)
+* Time
 
 ### Convert
 ```php
