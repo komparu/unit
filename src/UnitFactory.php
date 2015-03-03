@@ -19,7 +19,6 @@ class UnitFactory
             '\Komparu\Unit\Unit\Bitrate',
             '\Komparu\Unit\Unit\Money',
             '\Komparu\Unit\Unit\Percentage',
-            '\Komparu\Unit\Unit\Distance',
             '\Komparu\Unit\Unit\Length',
             '\Komparu\Unit\Unit\Time',
             '\Komparu\Unit\Unit\Mass',
