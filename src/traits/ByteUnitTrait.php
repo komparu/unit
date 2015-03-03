@@ -8,6 +8,8 @@
 
 namespace Komparu\Unit\Traits;
 
+use Komparu\Unit\UnitOfMeasure;
+
 trait ByteUnitTrait
 {
     protected $prefixes = [

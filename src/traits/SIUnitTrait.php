@@ -7,6 +7,8 @@
  */
 namespace Komparu\Unit\Traits;
 
+use Komparu\Unit\UnitOfMeasure;
+
 trait SIUnitTrait
 {
     protected $prefixes = [
