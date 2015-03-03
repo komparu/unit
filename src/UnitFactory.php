@@ -13,7 +13,7 @@ class UnitFactory
     
     static $aliases = [];
     
-    private function __construct()
+    public function __construct()
     {
         $units = [
             '\Komparu\units\Bitrate',
