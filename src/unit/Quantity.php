@@ -25,7 +25,7 @@ abstract class Quantity
     
     public function __toString()
     {
-        return $this->render($this->unit);
+        return $this->fancy(); //$this->unit);
     }
     
     public function render($unit)

@@ -34,17 +34,6 @@ class UnitFactory
         }
     }
     
-    public function get($value, $unit)
-    {
-        $factory = self::getInstance();
-        
-        if (!$unit) {
-            throw new Exception('missing or empty unit');
-        }
-        
-        return $factory->build($value, $unit);
-    }
-    
     /**
      * 
      * @param type $value
@@ -77,6 +66,11 @@ class UnitFactory
         }
         
         return false;
+    }
+    
+    public function all()
+    {
+        return self::$aliases;
     }
     
     /**

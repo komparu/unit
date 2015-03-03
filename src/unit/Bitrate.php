@@ -20,7 +20,7 @@ class Bitrate extends Quantity
         $this->register($si);
         
         $this->addMissingPrefixedUnits($si, 1, '%pbit/s');
-        $this->addMissingPrefixedUnits($si, 0.125, 'b/s');
+        $this->addMissingPrefixedUnits($si, 0.125, '%pb/s');
 
         parent::__construct($value, $unit);
     }

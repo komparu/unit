@@ -20,7 +20,7 @@ class DigitalInformation extends Quantity
         $this->register($si);
         
         $this->addMissingPrefixedUnits($si, 1, '%pbit');
-        $this->addMissingPrefixedUnits($si, 0.125, 'b'); // byte
+        $this->addMissingPrefixedUnits($si, 0.125, '%pb'); // byte
 
         parent::__construct($value, $unit);
     }
