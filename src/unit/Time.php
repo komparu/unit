@@ -7,6 +7,8 @@
  */
 namespace Komparu\Unit\Unit;
 
+use Komparu\Unit\UnitOfMeasure;
+
 class Time extends Quantity
 {
 
