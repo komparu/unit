@@ -23,7 +23,7 @@ class UnitFactory
             '\Komparu\Unit\Unit\Time',
             '\Komparu\Unit\Unit\Mass',
             '\Komparu\Unit\Unit\ElectricCurrent',
-            '\Komparu\Unit\Unit\LiminousIntensity',
+            '\Komparu\Unit\Unit\LuminousIntensity',
             '\Komparu\Unit\Unit\DigitalInformation',
         ];
         
