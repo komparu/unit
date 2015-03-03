@@ -16,10 +16,15 @@ class UnitFactory
     public function __construct()
     {
         $units = [
-            '\Komparu\units\Bitrate',
-            '\Komparu\units\Money',
-            '\Komparu\units\Percentage',
-            '\Komparu\units\Distance'
+            '\Komparu\Unit\Unit\Bitrate',
+            '\Komparu\Unit\Unit\Money',
+            '\Komparu\Unit\Unit\Percentage',
+            '\Komparu\Unit\Unit\Distance',
+            '\Komparu\Unit\Unit\Length',
+            '\Komparu\Unit\Unit\Time',
+            '\Komparu\Unit\Unit\Mass',
+            '\Komparu\Unit\Unit\ElectricCurrent',
+            '\Komparu\Unit\Unit\LiminousIntensity',
         ];
         
         foreach ($units as $unit) {
