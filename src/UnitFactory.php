@@ -25,6 +25,7 @@ class UnitFactory
             '\Komparu\Unit\Unit\Mass',
             '\Komparu\Unit\Unit\ElectricCurrent',
             '\Komparu\Unit\Unit\LiminousIntensity',
+            '\Komparu\Unit\Unit\DigitalInformation',
         ];
         
         foreach ($units as $unit) {

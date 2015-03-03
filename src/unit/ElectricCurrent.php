@@ -8,6 +8,7 @@
 namespace Komparu\Unit\Unit;
 
 use Komparu\Unit\UnitOfMeasure;
+use Komparu\Unit\Traits\SIUnitTrait;
 
 class ElectricCurrent extends Quantity
 {

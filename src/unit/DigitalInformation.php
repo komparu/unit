@@ -10,17 +10,17 @@ namespace Komparu\Unit\Unit;
 use Komparu\Unit\UnitOfMeasure;
 use Komparu\Unit\Traits\ByteUnitTrait;
 
-class Bitrate extends Quantity
+class DigitalInformation extends Quantity
 {
     use ByteUnitTrait;
     
-    public function __construct($value, $unit = 'kbit/s')
+    public function __construct($value, $unit = 'kbit')
     {        
-        $si = UnitOfMeasure::nativeUnitFactory('bit/s');        
+        $si = UnitOfMeasure::nativeUnitFactory('bit');        
         $this->register($si);
         
-        $this->addMissingPrefixedUnits($si, 1, '%pbit/s');
-        $this->addMissingPrefixedUnits($si, 0.125, 'b/s');
+        $this->addMissingPrefixedUnits($si, 1, '%pbit');
+        $this->addMissingPrefixedUnits($si, 0.125, 'b'); // byte
 
         parent::__construct($value, $unit);
     }
