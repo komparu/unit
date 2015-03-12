@@ -7,6 +7,10 @@
  */
 namespace Komparu\Unit;
 
+use Symfony\Component\Debug\Exception\ClassNotFoundException;
+use ReflectionClass;
+use ErrorException;
+
 class UnitFactory
 {
     static $self = null;
@@ -38,7 +42,7 @@ class UnitFactory
      * 
      * @param type $value
      * @param type $unit
-     * @return type
+     * @return \Komparu\Unit\Unit\Quantity
      * @throws \Symfony\Component\Debug\Exception\ClassNotFoundException
      */
     public function build($value, $unit)
@@ -47,7 +51,7 @@ class UnitFactory
         if ($className) {
             return $this->getClass($className, [$value, $unit]);
         } else {
-            throw new \Symfony\Component\Debug\Exception\ClassNotFoundException('unit class ' . $unit . ' not found', new \ErrorException());
+            throw new ClassNotFoundException('unit class ' . $unit . ' not found', new ErrorException());
         }
     }
     
@@ -81,7 +85,7 @@ class UnitFactory
      */
     protected function getClass($className, $args)
     {
-        $class = new \ReflectionClass($className);
+        $class = new ReflectionClass($className);
         return $class->newInstanceArgs($args);
     }
 }

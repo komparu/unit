@@ -25,7 +25,12 @@ abstract class Quantity
     
     public function __toString()
     {
-        return $this->fancy(); //$this->unit);
+        return $this->get();
+    }
+    
+    public function raw()
+    {
+        return $this->value;
     }
     
     public function render($unit)
@@ -78,7 +83,7 @@ abstract class Quantity
         throw new \Exception("Unknown unit ($unit)");
     }
     
-    public function fancy()
+    public function get()
     {
         $original   = $this->findUnitByName($this->unit);
         $value      = $original->convertToNative($this->value);
