@@ -16,6 +16,7 @@ abstract class Quantity
     protected $unitDefinitions = [];
     
     protected $significance = false;
+    protected $fields = [];
     
     public function __construct($value, $unit)
     {
@@ -25,7 +26,18 @@ abstract class Quantity
     
     public function __toString()
     {
-        return $this->get();
+        return $this->value();
+    }
+    
+    public function all()
+    {
+        $fields = array_merge($this->fields, ['raw', 'value']);
+        
+        foreach ($fields as $field) {
+            $result[$field] = $this->$field();
+        }
+        
+        return $result;
     }
     
     public function raw()
@@ -83,7 +95,7 @@ abstract class Quantity
         throw new \Exception("Unknown unit ($unit)");
     }
     
-    public function get()
+    public function value()
     {
         $original   = $this->findUnitByName($this->unit);
         $value      = $original->convertToNative($this->value);
