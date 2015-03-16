@@ -11,7 +11,7 @@ use Komparu\Unit\UnitOfMeasure;
 
 class Money extends Quantity
 {
-    protected $fields = ['html'];
+    protected $fields = ['html', 'osch'];
     
     public function __construct($value, $unit = '&euro;')
     {   
@@ -37,7 +37,12 @@ class Money extends Quantity
         
         $elements = explode(',', $number);
         
-        return '<span class="unit">' . $unit->getName() . '</span>' . $elements[0] . '<span class="cents">' . $elements[1] . '</span>';
+        return '<span class="unit">' . $unit->getName() . '</span>' . $elements[0] . ',<span class="cents">' . $elements[1] . '</span>';
+    }
+    
+    public function osch()
+    {
+        
     }
     
 }
