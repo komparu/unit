@@ -11,6 +11,8 @@ use Komparu\Unit\UnitOfMeasure;
 
 class Money extends Quantity
 {
+    protected $fields = ['html'];
+    
     public function __construct($value, $unit = '&euro;')
     {   
         $si = UnitOfMeasure::nativeUnitFactory('&euro;');  
@@ -24,6 +26,18 @@ class Money extends Quantity
     {
         $unit = $this->findUnitByName($unit);
         return $unit->getName() . ' ' . number_format($this->to($unit->getName()), 2, ',' , '.');
+    }
+    
+    public function html()
+    {
+        $unit = $this->neatValue();
+        $unit = $this->findUnitByName($unit);
+        
+        $number = number_format($this->to($unit->getName()), 2, ',' , '.');
+        
+        $elements = explode(',', $number);
+        
+        return '<span class="unit">' . $unit->getName() . '</span>' . $elements[0] . '<span class="cents">' . $element[1] . '</span>';
     }
     
 }

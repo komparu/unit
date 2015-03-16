@@ -95,7 +95,7 @@ abstract class Quantity
         throw new \Exception("Unknown unit ($unit)");
     }
     
-    public function value()
+    protected function neatValue()
     {
         $original   = $this->findUnitByName($this->unit);
         $value      = $original->convertToNative($this->value);
@@ -111,6 +111,12 @@ abstract class Quantity
             }
         }
         
+        return $unit;
+    }
+    
+    public function value()
+    {
+        $unit = $this->neatValue();
         return $this->render($unit);
     }
 }
