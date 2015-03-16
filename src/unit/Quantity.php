@@ -29,9 +29,14 @@ abstract class Quantity
         return $this->value();
     }
     
+    public function getFields()
+    {
+        return array_merge($this->fields, ['raw', 'value']);
+    }
+    
     public function all()
     {
-        $fields = array_merge($this->fields, ['raw', 'value']);
+        $fields = $this->getFields();
         
         foreach ($fields as $field) {
             $result[$field] = $this->$field();
