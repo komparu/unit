@@ -76,7 +76,7 @@ abstract class Quantity
         $original   = $this->findUnitByName($this->unit);
         $value      = $original->convertToNative($this->value);
         
-        if ($unit === false) {
+        if ($unit !== false) {
             $to         = $this->findUnitByName($unit);
             $value      = $to->convertFromNative($value);
         }

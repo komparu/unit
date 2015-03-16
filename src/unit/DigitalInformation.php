@@ -14,13 +14,12 @@ class DigitalInformation extends Quantity
 {
     use ByteUnitTrait;
     
-    public function __construct($value, $unit = 'kbit')
+    public function __construct($value, $unit = 'kb')
     {        
-        $si = UnitOfMeasure::nativeUnitFactory('bit');        
+        $si = UnitOfMeasure::nativeUnitFactory('b');        
         $this->register($si);
         
-        $this->addMissingPrefixedUnits($si, 1, '%pbit');
-        $this->addMissingPrefixedUnits($si, 0.125, '%pb'); // byte
+        $this->addMissingPrefixedUnits($si, 1, '%pb');
 
         parent::__construct($value, $unit);
     }
