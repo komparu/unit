@@ -37,7 +37,7 @@ class Money extends Quantity
         
         $elements = explode(',', $number);
         
-        return '<span class="unit">' . $unit->getName() . '</span>' . $elements[0] . '<span class="cents">' . $element[1] . '</span>';
+        return '<span class="unit">' . $unit->getName() . '</span>' . $elements[0] . '<span class="cents">' . $elements[1] . '</span>';
     }
     
 }
