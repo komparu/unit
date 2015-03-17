@@ -28,6 +28,11 @@ class Money extends Quantity
         return $unit->getName() . ' ' . number_format($this->to($unit->getName()), 2, ',' , '.');
     }
     
+    public function jsFormatter()
+    {
+        return '&euro; {0}';
+    }
+    
     public function html()
     {
         $unit = $this->neatValue();

@@ -51,7 +51,8 @@ class UnitFactory
         if ($className) {
             return $this->getClass($className, [$value, $unit]);
         } else {
-            throw new ClassNotFoundException('unit class ' . $unit . ' not found', new ErrorException());
+            return new Unit\FallbackUnit($value, $unit);
+            //throw new ClassNotFoundException('unit class ' . $unit . ' not found', new ErrorException());
         }
     }
     

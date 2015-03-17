@@ -9,7 +9,7 @@ namespace Komparu\Unit\Unit;
 
 use Komparu\Unit\UnitOfMeasure;
 
-abstract class Quantity
+abstract class Quantity implements UnitInterface
 {
     protected $value;
     protected $unit;
@@ -54,6 +54,11 @@ abstract class Quantity
     {
         $unit = $this->findUnitByName($unit);
         return $this->to($unit->getName()) . ' ' . $unit->getName();
+    }
+    
+    public function jsFormatter()
+    {
+        return '{0} ' . $this->unit;
     }
     
     public function getSupportedUnits($withAliases = false)
