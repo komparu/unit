@@ -16,7 +16,7 @@ class Time extends Quantity
         [
             'abbr_prefix' => 'Y',
             'long_prefix' => 'year',
-            'factor'      => 3153600
+            'factor'      => 31536000
         ],
         [
             'abbr_prefix' => 'm',
