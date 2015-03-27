@@ -17,6 +17,7 @@ abstract class Quantity implements UnitInterface
     
     protected $significance = false;
     protected $fields = [];
+    protected $translation;
     
     public function __construct($value, $unit, array $translation = [])
     {
@@ -54,7 +55,9 @@ abstract class Quantity implements UnitInterface
     public function render($unit)
     {
         $unit = $this->findUnitByName($unit);
-        return $this->to($unit->getName()) . ' ' . $unit->getName();
+        $unitName = $unit->getName();
+        $displayUnit = isset($this->translation[$unitName]) ? $this->translation[$unitName] : $unitName;
+        return $this->to($unitName) . ' ' . $displayUnit;
     }
     
     public function jsFormatter()
