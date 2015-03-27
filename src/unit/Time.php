@@ -14,46 +14,39 @@ class Time extends Quantity
 
     protected $prefixes = [
         [
-            'abbr_prefix' => 'Y',
-            'long_prefix' => 'year',
+            'name' => 'year',
             'factor'      => 31536000
         ],
         [
-            'abbr_prefix' => 'm',
-            'long_prefix' => 'month',
+            'name' => 'month',
             'factor'      => 2628000
         ],
         [
-            'abbr_prefix' => 'd',
-            'long_prefix' => 'day',
+            'name' => 'day',
             'factor'      => 86400
         ],
         [
-            'abbr_prefix' => 'h',
-            'long_prefix' => 'hour',
+            'name' => 'hour',
             'factor'      => 3600
         ],
         [
-            'abbr_prefix' => 'i',
-            'long_prefix' => 'minute',
+            'name' => 'minute',
             'factor'      => 60
         ],
         [
-            'abbr_prefix' => 's',
-            'long_prefix' => 'seconds',
+            'name' => 'seconds',
             'factor'      => 1
         ]
     ];
     
     public function __construct($value, $unit = 's', array $translation = [])
     {        
-        $si = UnitOfMeasure::nativeUnitFactory('s');  
-        $si->addAlias('second');
+        $si = UnitOfMeasure::nativeUnitFactory('seconds');  
         $this->register($si);
         
         $this->addMissingPrefixedUnits($si, 1);
 
-        parent::__construct($value, $unit);
+        parent::__construct($value, $unit, $translation);
     }
     
     protected function addMissingPrefixedUnits(UnitOfMeasure $si, $toBaseSi)
@@ -64,8 +57,8 @@ class Time extends Quantity
             
             $toNative = $noPrefix * $prefix['factor'];
             
-            $newUnit = UnitOfMeasure::linearUnitFactory($prefix['abbr_prefix'], $toNative);
-            $newUnit->addAlias($prefix['long_prefix']);
+            $newUnit = UnitOfMeasure::linearUnitFactory($prefix['name'], $toNative);
+            $newUnit->addAlias($prefix['short']);
             
             $this->register($newUnit);
         }
