@@ -58,7 +58,6 @@ class Time extends Quantity
             $toNative = $noPrefix * $prefix['factor'];
             
             $newUnit = UnitOfMeasure::linearUnitFactory($prefix['name'], $toNative);
-            $newUnit->addAlias($prefix['short']);
             
             $this->register($newUnit);
         }
