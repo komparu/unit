@@ -45,7 +45,7 @@ class Time extends Quantity
         ]
     ];
     
-    public function __construct($value, $unit = 's')
+    public function __construct($value, $unit = 's', array $translation = [])
     {        
         $si = UnitOfMeasure::nativeUnitFactory('s');  
         $si->addAlias('second');
