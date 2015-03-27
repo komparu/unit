@@ -17,7 +17,9 @@ class UnitFactory
     
     static $aliases = [];
     
-    public function __construct()
+    protected $translations;
+    
+    public function __construct(array $translations = [])
     {
         $units = [
             '\Komparu\Unit\Unit\Bitrate',
@@ -32,10 +34,12 @@ class UnitFactory
         ];
         
         foreach ($units as $unit) {
-            $unitClass = $this->getClass($unit, [1, null]);
+            $unitClass = $this->getClass($unit, [1, null, []]);
             $support = $unitClass->getSupportedUnits(true);
             self::$aliases[$unit] = $support;
         }
+        
+        $this->translations = $translations;
     }
     
     /**
@@ -49,7 +53,7 @@ class UnitFactory
     {
         $className = $this->has($unit);
         if ($className) {
-            return $this->getClass($className, [$value, $unit]);
+            return $this->getClass($className, [$value, $unit, $this->translations]);
         } else {
             return new Unit\FallbackUnit($value, $unit);
             //throw new ClassNotFoundException('unit class ' . $unit . ' not found', new ErrorException());

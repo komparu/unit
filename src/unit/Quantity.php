@@ -18,10 +18,11 @@ abstract class Quantity implements UnitInterface
     protected $significance = false;
     protected $fields = [];
     
-    public function __construct($value, $unit)
+    public function __construct($value, $unit, array $translation = [])
     {
-        $this->value = $value;
-        $this->unit = $unit;
+        $this->value        = $value;
+        $this->unit         = $unit;
+        $this->translation  = $translation;
     }
     
     public function __toString()

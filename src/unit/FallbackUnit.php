@@ -8,11 +8,13 @@ class FallbackUnit implements UnitInterface
 {
     protected $value;
     protected $unit;
+    protected $translation;
     
-    public function __construct($value, $unit)
+    public function __construct($value, $unit, array $translation = [])
     {
-        $this->value    = $value;
-        $this->unit     = $unit;
+        $this->value        = $value;
+        $this->unit         = $unit;
+        $this->translation  = $translation;
     }
     
     public function all()
@@ -32,7 +34,8 @@ class FallbackUnit implements UnitInterface
 
     public function value()
     {
-        return $this->value . ' ' . $this->unit;
+        $unit = isset($this->translation[$this->unit]) ? $this->translation['unit.' . $this->unit] : $this->unit;
+        return $this->value . ' ' . $unit;
     }
     
     public function jsFormatter()
