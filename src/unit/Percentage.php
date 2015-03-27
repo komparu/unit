@@ -11,7 +11,7 @@ use Komparu\Unit\UnitOfMeasure;
 
 class Percentage extends Quantity
 {
-    public function __construct($value, $unit = 'percentage')
+    public function __construct($value, $unit = 'percentage', array $translation = [])
     {   
         $si = UnitOfMeasure::nativeUnitFactory('percentage');  
         $si->addAlias('%');

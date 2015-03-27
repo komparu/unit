@@ -14,7 +14,7 @@ class Mass extends Quantity
 {
     use SIUnitTrait;
     
-    public function __construct($value, $unit = 'g')
+    public function __construct($value, $unit = 'g', array $translation = [])
     {        
         $si = UnitOfMeasure::nativeUnitFactory('g');        
         $this->register($si);

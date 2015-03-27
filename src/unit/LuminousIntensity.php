@@ -14,7 +14,7 @@ class LuminousIntensity extends Quantity
 {
     use SIUnitTrait;
     
-    public function __construct($value, $unit = 'cd')
+    public function __construct($value, $unit = 'cd', array $translation = [])
     {        
         $si = UnitOfMeasure::nativeUnitFactory('cd');        
         $this->register($si);

@@ -14,7 +14,7 @@ class ElectricCurrent extends Quantity
 {
     use SIUnitTrait;
     
-    public function __construct($value, $unit = 'A')
+    public function __construct($value, $unit = 'A', array $translation = [])
     {        
         $si = UnitOfMeasure::nativeUnitFactory('A');        
         $this->register($si);

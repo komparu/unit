@@ -14,7 +14,7 @@ class Bitrate extends Quantity
 {
     use ByteUnitTrait;
     
-    public function __construct($value, $unit = 'kbit/s')
+    public function __construct($value, $unit = 'kbit/s', array $translation = [])
     {        
         $si = UnitOfMeasure::nativeUnitFactory('bit/s');        
         $this->register($si);

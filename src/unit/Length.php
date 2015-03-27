@@ -14,7 +14,7 @@ class Length extends Quantity
 {
     use SIUnitTrait;
     
-    public function __construct($value, $unit = 'm')
+    public function __construct($value, $unit = 'm', array $translation = [])
     {        
         $si = UnitOfMeasure::nativeUnitFactory('m');        
         $this->register($si);

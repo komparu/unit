@@ -13,7 +13,7 @@ class Money extends Quantity
 {
     protected $fields = ['html'];
     
-    public function __construct($value, $unit = '&euro;')
+    public function __construct($value, $unit = '&euro;', array $translation = [])
     {   
         $si = UnitOfMeasure::nativeUnitFactory('&euro;');  
         $si->addAlias('euro');

@@ -14,7 +14,7 @@ class DigitalInformation extends Quantity
 {
     use ByteUnitTrait;
     
-    public function __construct($value, $unit = 'kb')
+    public function __construct($value, $unit = 'kb', array $translation = [])
     {        
         $si = UnitOfMeasure::nativeUnitFactory('b');        
         $this->register($si);
