@@ -60,11 +60,6 @@ abstract class Quantity implements UnitInterface
         return $this->to($unitName) . ' ' . $displayUnit;
     }
     
-    public function jsFormatter()
-    {
-        return '{0} ' . $this->unit;
-    }
-    
     public function getSupportedUnits($withAliases = false)
     {
         $units = [];
@@ -96,6 +91,10 @@ abstract class Quantity implements UnitInterface
         }
 
         return $value;
+    }
+
+    public function fancy(){
+        return $this->neatValue();
     }
     
     protected function findUnitByName($unit)
